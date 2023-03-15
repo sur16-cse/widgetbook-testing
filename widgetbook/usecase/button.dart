@@ -18,11 +18,11 @@ Widget customAppElevatedButtonUseCase(BuildContext context) {
         ? context.knobs.options(label: 'Icon', options: [
             const Option(
               label: 'plus',
-              value: AppIcons.search,
+              value: Icons.search,
             ),
             const Option(
               label: 'add_feather_fill',
-              value: AppIcons.apple,
+              value: Icons.apple,
             )
           ])
         : null,
@@ -118,11 +118,11 @@ Widget primaryAppElevatedButtonUseCase(BuildContext context) {
         ? context.knobs.options(label: 'Icon', options: [
       const Option(
         label: 'plus',
-        value: AppIcons.plus,
+        value: Icons.plus_one,
       ),
       const Option(
         label: 'add_feather_fill',
-        value: AppIcons.add_feather_fill,
+        value: Icons.add,
       )
     ])
         : null,
@@ -143,11 +143,11 @@ Widget secondaryAppElevatedButtonUseCase(BuildContext context) {
         ? context.knobs.options(label: 'Icon', options: [
       const Option(
         label: 'plus',
-        value: AppIcons.plus,
+        value: Icons.plus_one,
       ),
       const Option(
         label: 'add_feather_fill',
-        value: AppIcons.add_feather_fill,
+        value: Icons.add,
       )
     ])
         : null,
@@ -168,11 +168,11 @@ Widget primaryOutlineAppElevatedButtonUseCase(BuildContext context) {
         ? context.knobs.options(label: 'Icon', options: [
       const Option(
         label: 'plus',
-        value: AppIcons.plus,
+        value: Icons.plus_one,
       ),
       const Option(
         label: 'add_feather_fill',
-        value: AppIcons.add_feather_fill,
+        value: Icons.add,
       )
     ])
         : null,
@@ -193,11 +193,11 @@ Widget secondaryOutlineAppElevatedButtonUseCase(BuildContext context) {
         ? context.knobs.options(label: 'Icon', options: [
       const Option(
         label: 'plus',
-        value: AppIcons.plus,
+        value: Icons.plus_one,
       ),
       const Option(
         label: 'add_feather_fill',
-        value: AppIcons.add_feather_fill,
+        value: Icons.add,
       )
     ])
         : null,
