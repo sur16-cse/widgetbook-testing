@@ -1,39 +1,30 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+class AppFloatingActionButton extends StatelessWidget {
+  final VoidCallback? onPressed;
+  final String? label;
+  final Widget? icon;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
+  final double elevation;
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const AppFloatingActionButton({super.key, 
+    required this.onPressed,
+    required this.icon,
+    this.backgroundColor,
+    this.foregroundColor,
+    this.elevation = 6.0, 
+    this.label,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-          colorSchemeSeed: const Color(0xff6750a4), useMaterial3: true),
-      home: const FabExample(),
-    );
-  }
-}
-
-class FabExample extends StatelessWidget {
-  const FabExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('FloatingActionButton Sample'),
-      ),
-      body: const Center(child: Text('Press the button below!')),
-      // An example of the floating action button.
-      //
-      // https://m3.material.io/components/floating-action-button/specs
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Add your onPressed code here!
-        },
-        child: const Icon(Icons.add),
-      ),
+    return FloatingActionButton(
+      onPressed: onPressed??(){},
+      backgroundColor: backgroundColor??Colors.indigo.shade600,
+      foregroundColor: foregroundColor??Colors.white,
+      elevation: elevation,
+      child: icon,
     );
   }
 }
