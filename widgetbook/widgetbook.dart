@@ -7,10 +7,9 @@ import 'package:device_preview/device_preview.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    const HotReload()
-    // DevicePreview(
-    //   enabled: true,
-    //   builder: (context) => const HotReload(),
-    // ),
+    DevicePreview(
+      enabled: true,
+      builder: (context) => const HotReload(),
+    ),
   );
 }
