@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class DropdownButtonExample extends StatefulWidget {
-  const DropdownButtonExample(this.list, this.icon, this.elevation, this.textColor, {super.key, this.dropDownColor});
+class DropDownButton extends StatefulWidget {
+  const DropDownButton(this.list, this.icon, this.elevation, this.textColor, {super.key, this.dropDownColor});
   final List<String>? list;
   final Icon? icon;
   final int? elevation;
@@ -9,10 +9,10 @@ class DropdownButtonExample extends StatefulWidget {
   final Color? dropDownColor;
 
   @override
-  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
+  State<DropDownButton> createState() => _DropDownButtonState();
 }
 
-class _DropdownButtonExampleState extends State<DropdownButtonExample> {
+class _DropDownButtonState extends State<DropDownButton> {
   late String dropdownValue='Select...';
 
   @override
