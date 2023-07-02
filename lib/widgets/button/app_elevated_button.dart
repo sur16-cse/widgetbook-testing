@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:n_learn/styles/app_colors.dart';
+
+import '../../styles/app_colors.dart';
+import '../../styles/app_text_styles.dart';
 
 /// ElevatedButton wrapper for the app with variations
 class AppElevatedButton extends StatelessWidget {
@@ -11,10 +13,13 @@ class AppElevatedButton extends StatelessWidget {
     this.backgroundColor,
     this.icon,
     this.textColor,
-    required this.height,
-    required this.borderColor,
+    this.height,
+    this.borderColor,
     this.mainAxisSize = MainAxisSize.min,
     this.elevation,
+    this.width,
+    this.borderRadius,
+    required this.size,
   });
 
   /// Creates new instance of [AppElevatedButton] with Primary button style
@@ -25,7 +30,10 @@ class AppElevatedButton extends StatelessWidget {
     this.onPressed,
     this.height = 40,
     this.mainAxisSize = MainAxisSize.min,
-    this.elevation,
+    this.elevation = 10,
+    required this.size,
+    this.width,
+    this.borderRadius,
   })  : backgroundColor = AppColors.primary,
         textColor = AppColors.white,
         borderColor = null;
@@ -39,6 +47,9 @@ class AppElevatedButton extends StatelessWidget {
     this.height = 40,
     this.mainAxisSize = MainAxisSize.min,
     this.elevation,
+    required this.size,
+    this.width,
+    this.borderRadius,
   })  : backgroundColor = AppColors.white,
         textColor = AppColors.primary,
         borderColor = AppColors.primary;
@@ -52,6 +63,9 @@ class AppElevatedButton extends StatelessWidget {
     this.height = 40,
     this.mainAxisSize = MainAxisSize.min,
     this.elevation,
+    required this.size,
+    this.width,
+    this.borderRadius,
   })  : backgroundColor = AppColors.secondary,
         textColor = AppColors.white,
         borderColor = null;
@@ -65,6 +79,9 @@ class AppElevatedButton extends StatelessWidget {
     this.height = 40,
     this.mainAxisSize = MainAxisSize.min,
     this.elevation,
+    required this.size,
+    this.width,
+    this.borderRadius,
   })  : backgroundColor = AppColors.white,
         textColor = AppColors.secondary,
         borderColor = AppColors.border;
@@ -81,8 +98,17 @@ class AppElevatedButton extends StatelessWidget {
   /// Button onPressed callback
   final VoidCallback? onPressed;
 
+  /// Button size
+  final Size size;
+
   /// Button height
-  final double height;
+  final num? height;
+
+  ///Button width
+  final double? width;
+
+  ///Button borderRadius
+  final double? borderRadius;
 
   /// Button border
   final Color? borderColor;
@@ -93,6 +119,7 @@ class AppElevatedButton extends StatelessWidget {
   /// How much space should be occupied in the main axis.
   final MainAxisSize mainAxisSize;
 
+  /// position from z axis
   final double? elevation;
 
   Color? _getBackgroundColor(bool isDark) {
@@ -117,35 +144,37 @@ class AppElevatedButton extends StatelessWidget {
     return textColor;
   }
 
+
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
     final dynamicBackgroundColor = _getBackgroundColor(isDark);
     final dynamicTextColor = _getTextColor(isDark);
-
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: dynamicBackgroundColor,
-        foregroundColor: dynamicTextColor,
-        fixedSize: Size.fromHeight(height),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(height / 2),
-          side: borderColor == null
-              ? BorderSide.none
-              : BorderSide(color: borderColor!),
-        ),
-        textStyle: Theme.of(context).textTheme.labelLarge!.copyWith(height: 1.05),
-          elevation: elevation ?? 0
-      ),
+          backgroundColor: dynamicBackgroundColor,
+          foregroundColor: dynamicTextColor,
+          // fixedSize: Size.fromHeight(size as double),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(
+                borderRadius != null ? borderRadius! : (size.height) / 2),
+            side: borderColor == null
+                ? BorderSide.none
+                : BorderSide(color: borderColor!),
+          ),
+          textStyle:
+            AppTextStyles.button,
+          elevation: elevation ?? 0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: mainAxisSize,
         children: [
+
           if (icon != null)
             Padding(
-              padding: EdgeInsetsDirectional.only(end: label == null ? 0 : 10),
-              child: Icon(icon, size: height * 0.3),
+              padding: EdgeInsetsDirectional.only(end: label == null ? 0 : 8),
+              child: Icon(icon,size:size.height,),
             ),
           if (label != null) Text(label!),
         ],

@@ -1,4 +1,3 @@
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -11,6 +10,7 @@ class AppThemes {
   /// Returns theme data
   static ThemeData getTheme({bool isDark = false}) {
     return ThemeData(
+      useMaterial3: true,
       brightness: isDark ? Brightness.dark : Brightness.light,
       fontFamily: AppTextStyles.fontFamily,
       primaryColor: AppColors.getMaterialColorFromColor(AppColors.primary),
@@ -67,6 +67,8 @@ class AppThemes {
       iconTheme: IconThemeData(
         color: isDark ? AppColors.whiteLight : AppColors.textLight,
       ),
+
+
       textTheme: TextTheme(
         displayLarge: AppTextStyles.h1,
         displayMedium: AppTextStyles.h2,

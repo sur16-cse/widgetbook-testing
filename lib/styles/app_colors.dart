@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-/// Styles class holding app color information
-/// and helper methods
 class AppColors {
   /// App primary color
-  static const Color primary = Color(0xff1DA1F2);
+  static const Color primary = Color(0xffc23e2d);
 
   /// App secondary color
-  static const Color secondary = Color(0xff141619);
+  static const Color secondary = Color(0xff0853e5);
 
   /// App black color
   static const Color black = Color(0xff141619);

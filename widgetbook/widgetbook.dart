@@ -8,8 +8,8 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     DevicePreview(
-      enabled: true,
-      builder: (context) => const HotReload(),
+      enabled: false,
+      builder: (context) => const HotreloadWidgetbook(),
     ),
   );
 }
